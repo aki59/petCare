@@ -1,13 +1,13 @@
-package com.petOcare.adoption;
+package com.petOcare.inventory;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AdoptionApplication {
+public class InventoryApplication {
 	
 	public static void main(String... args) {
-		SpringApplication.run(AdoptionApplication.class, args);
+		SpringApplication.run(InventoryApplication.class, args);
 		
 	}
 
