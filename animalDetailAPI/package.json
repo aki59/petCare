@@ -1,0 +1,22 @@
+{
+  "name": "animaldetailapi",
+  "version": "1.0.0",
+  "description": "API will get the basic details of animal breed",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aki59/petCare.git"
+  },
+  "author": "akash",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aki59/petCare/issues"
+  },
+  "homepage": "https://github.com/aki59/petCare#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
