@@ -24,8 +24,8 @@ import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 
 import javax.sql.DataSource;
 
-@Configuration
-@EnableAuthorizationServer
+//@Configuration
+//@EnableAuthorizationServer
 public class Oauth2AuthorizationConfig extends AuthorizationServerConfigurerAdapter {
 	
 	@Autowired
