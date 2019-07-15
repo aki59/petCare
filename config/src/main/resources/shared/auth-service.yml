@@ -1,0 +1,13 @@
+server:
+  servlet:
+    context-path: /uaa
+  port: 5000
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/petCare_login
+    username: akash
+    password: petCare001
+  jpa:
+    hibernate.ddl-auto: update
+    show-sql: true

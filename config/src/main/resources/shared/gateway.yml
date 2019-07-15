@@ -1,0 +1,22 @@
+
+zuul:
+  ignoredServices: '*'
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
+
+  routes:
+    auth-service:
+        path: /uaa/**
+        url: http://localhost:5000
+        stripPrefix: false
+        sensitiveHeaders:
+
+    inventory-service:
+        path: /inventory/**
+        serviceId: inventory-service
+        stripPrefix: false
+        sensitiveHeaders:
+
+server:
+  port: 4000

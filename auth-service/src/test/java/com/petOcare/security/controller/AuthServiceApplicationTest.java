@@ -1,4 +1,4 @@
-package com.petOcare.security.test;
+package com.petOcare.security.controller;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
