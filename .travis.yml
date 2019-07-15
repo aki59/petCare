@@ -3,6 +3,10 @@ language: java
 dist: trusty
 jdk: oraclejdk8
 
+install: true
+
+script: mvn clean package -DskipTests=true
+
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
