@@ -44,7 +44,7 @@ public class UserControllerTest {
 		user.setPassword("password");
 		user.setLastName("tiwari");
 		user.setRoles("Role_Volunteer");
-		user.setEmail("akash69tiwari@gmail.com");
+		user.setEmail("akash66tiwari@gmail.com");
 		
 		String json =mapper.writeValueAsString(user);
 		
