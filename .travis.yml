@@ -1,15 +1,41 @@
 sudo: false
+
+services:
+  - docker
+  
 language: java
 dist: trusty
 jdk: oraclejdk8
+
+
 
 install: true
 
 script: mvn clean package -DskipTests=true
 
+env:
+  global:
+    - COMMIT=${TRAVIS_COMMIT::7}
+
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  docker login -u aki59tiwari -p Linux4zoriN
+  
+  #TAG
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+
+  # CONFIG SERVICE
+  - export CONFIG=aki59tiwari/petcare-config
+  - docker build -t $CONFIG:$COMMIT ./config
+  - docker tag $CONFIG:$COMMIT $CONFIG:$TAG
+  - docker push $CONFIG
+  
+    # AUTH SERVICE
+  - export AUTH_SERVICE=aki59tiwari/petcare-auth-service
+  - docker build -t $AUTH_SERVICE:$COMMIT ./auth-service
+  - docker tag $AUTH_SERVICE:$COMMIT $AUTH_SERVICE:$TAG
+  - docker push $AUTH_SERVICE
   
 cache:
   directories:
