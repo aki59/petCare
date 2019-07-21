@@ -3,6 +3,7 @@ package com.petOcare.security.controller;
 import com.petOcare.security.dto.UserDto;
 import com.petOcare.security.service.UserService;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -11,17 +12,20 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.petOcare.security.controller.UserController;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
+@ActiveProfiles("test")
 public class UserControllerTest {
 	
 	private static final ObjectMapper mapper = new ObjectMapper();
@@ -34,8 +38,14 @@ public class UserControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;
+	
+	@Test
+	public void shouldGive200_status()throws Exception {
+		mockMvc.perform(get("user/sayHello")).andExpect(status().isOk());
+	}
 
 	
+	@Ignore
 	@Test
 	public void shouldCreateUser() throws Exception {
 		final UserDto user=new UserDto();
@@ -48,7 +58,7 @@ public class UserControllerTest {
 		
 		String json =mapper.writeValueAsString(user);
 		
-		mockMvc.perform(post("/createUser").contentType(MediaType.APPLICATION_JSON).content(json))
+		mockMvc.perform(post("user/createUser").contentType(MediaType.APPLICATION_JSON).content(json))
 		                                   .andExpect(status().isOk());
 	
 	}

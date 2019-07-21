@@ -1,12 +1,22 @@
 security:
   oauth2:
-  resource:
-    userInfoUri: BUGFIX
     client:
       clientId: inventory-service
       clientSecret: inventory001
       accessTokenUri: http://localhost:5000/uaa/oauth/token
       grant-type: client_credentials
       scope: server
-      
+    resource:
+      userInfoUri: http://localhost:5000/uaa/user/current
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/petCare_inventory
+    username: akash
+    password: petCare001
+  jpa:
+    hibernate.ddl-auto: update
+    show-sql: true
+
+          
     

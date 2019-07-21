@@ -1,6 +1,8 @@
 package com.petOcare.security.controller;
 
 
+import java.security.Principal;
+
 import javax.validation.Valid;
 
 import com.petOcare.security.dto.UserDto;
@@ -26,10 +28,10 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@GetMapping("user/sayHello")
-	public String hello() {
-		return "hello";
-	}
+	 @GetMapping("user/current")
+	    public Principal getUser(Principal principal) {
+	        return principal;
+	    }
 
 	//@Secured({ROLE_USER})
 	//@PreAuthorize("#oauth2.hasScope('server')")
