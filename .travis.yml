@@ -14,8 +14,9 @@ addons:
       - mysql-5.7-xenial
     packages:
       - mysql-server
-
-
+      
+before_install:
+- mysql -e 'CREATE DATABASE IF NOT EXISTS petcare_login;'
 
 install: true
 
