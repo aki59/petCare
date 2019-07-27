@@ -2,15 +2,25 @@ sudo: false
 
 services:
   - docker
+  - mysql
   
 language: java
 dist: trusty
 jdk: oraclejdk8
 
+addons:
+  apt:
+    sources:
+      - mysql-5.7-trusty
+    packages:
+      - mysql-server
+
 
 
 install: true
 
+before_script:
+  - mysql -e 'create database petCare_login IF NOT EXIST;'
 
 env:
   global:
