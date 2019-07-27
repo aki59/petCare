@@ -1,17 +1,17 @@
-sudo: enable
+sudo: false
 
 services:
   - docker
   - mysql
   
 language: java
-dist: trusty
+dist: xenial
 jdk: oraclejdk8
 
 addons:
   apt:
     sources:
-      - mysql-5.7-trusty
+      - mysql-5.7-xenial
     packages:
       - mysql-server
 
