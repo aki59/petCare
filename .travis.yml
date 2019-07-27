@@ -5,8 +5,8 @@ services:
   - mysql
   
 language: java
-dist: trusty
-jdk: oraclejdk8
+dist: xenial
+jdk: openjdk8
 
 addons:
   apt:
