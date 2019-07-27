@@ -19,9 +19,6 @@ addons:
 
 install: true
 
-before_script:
-  - mysql -e 'create database petCare_login IF NOT EXIST;'
-
 env:
   global:
     - COMMIT=${TRAVIS_COMMIT::7}
