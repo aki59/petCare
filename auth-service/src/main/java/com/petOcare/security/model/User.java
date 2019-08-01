@@ -2,6 +2,8 @@ package com.petOcare.security.model;
 
 import java.util.Collection;
 import java.util.Date;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import lombok.Data;
 import lombok.ToString;
@@ -32,6 +36,10 @@ private String lastName;
 private String password;
 private Integer age;
 private String sex;
+
+@OneToOne(fetch= FetchType.LAZY,cascade= CascadeType.ALL,mappedBy="user")
+private Address address;
+
 private Date birthDate;
 
 @ManyToMany(fetch = FetchType.EAGER)
