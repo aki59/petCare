@@ -5,22 +5,20 @@ services:
   - mysql
   
 language: java
-dist: trusty
-jdk: oraclejdk8
+dist: xenial
+jdk: openjdk8
 
 addons:
   apt:
     sources:
-      - mysql-5.7-trusty
+      - mysql-5.7-xenial
     packages:
       - mysql-server
-
-
+      
+before_install:
+- mysql -e 'CREATE DATABASE IF NOT EXISTS petcare_login;'
 
 install: true
-
-before_script:
-  - mysql -e 'create database petCare_login IF NOT EXIST;'
 
 env:
   global:
