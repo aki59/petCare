@@ -14,4 +14,8 @@ public class PetType {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
+    
+    public PetType(Integer id){
+    	this.id=id;
+    }
 }

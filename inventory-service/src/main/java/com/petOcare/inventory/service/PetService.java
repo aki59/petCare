@@ -5,6 +5,6 @@ import com.petOcare.inventory.model.Pets;
 
 public interface PetService {
 
-	Pets addAPet(AnimalForm animalForm);
+	Pets addAPet(AnimalForm pet);
 
 }

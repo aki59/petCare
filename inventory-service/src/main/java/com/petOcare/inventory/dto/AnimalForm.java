@@ -1,5 +1,6 @@
 package com.petOcare.inventory.dto;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import lombok.Builder;
@@ -10,12 +11,12 @@ import lombok.Getter;
 public class AnimalForm {
 	
 	private String animalName;
-	private String animalType;
+	private Integer petType;
 	private String animalBreed;
-	private Date birthDate;
+	private LocalDate birthDate;
 	private String animalSex;
-	private String animalBehavior="none";
-	private String animalComplication="none";
+	private String animalBehavior;
+	private String animalComplication;
 	private String comments;
 	//private Address guardianAddress;
 	private Boolean isVaccinated;

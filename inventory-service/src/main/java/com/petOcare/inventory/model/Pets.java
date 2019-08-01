@@ -1,25 +1,30 @@
 package com.petOcare.inventory.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.*;
 
+import com.petOcare.inventory.dto.AnimalForm;
+
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
 @Data
+@NoArgsConstructor
 @ToString
 public class Pets {
 	
 	@Id	
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private Integer id;
 	private String animalName;
 
 	@Column(name = "birth_date")
-	@Temporal(TemporalType.DATE)
-	private Date birthDate;
+	private LocalDate birthDate;
 
 	@ManyToOne
 	@JoinColumn(name = "animalType_id")
@@ -34,7 +39,9 @@ public class Pets {
 	private Boolean isVaccinated;
 	private Boolean isNeutered;
 	private Date requestDate;
-	private Integer userID;
+	private String userName;
 	private String status;
+	
+	
 
 }
