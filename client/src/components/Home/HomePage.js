@@ -1,6 +1,7 @@
 import React from 'react';
 import './HomePage.scss';
 import { AboutUsComponent } from '../About-Us/AboutUs';
+import { HomePageHeader} from './HomePageHeader';
 import { GalleryComponent } from '../Gallery/Gallery';
 import { VolunteerComponent } from '../Volunteer/Volunteer';
 import { FosterComponent } from '../Foster/Foster';
@@ -13,6 +14,9 @@ export class HomePageComponent extends React.Component {
         {/* <header /> */}
         <div className='notification-top'>
           <NotificationComponent />
+        </div>
+        <div className='homePage-header-main'>
+          <HomePageHeader />
         </div>
         <div className='banner'>
           <h1>PET CARE</h1>

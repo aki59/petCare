@@ -8,6 +8,19 @@
     z-index: 1;
   }
 
+  .homePage-header-main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+  }
+
   .banner {
     position: relative;
     height: 100vh;

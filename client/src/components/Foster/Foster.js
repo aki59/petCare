@@ -6,6 +6,7 @@ export class FosterComponent extends Component {
     return (
       <div className='foster_wrapper'>
         <h1>FOSTER</h1>
+        <a href="/petCare/addAPet">Please click if you want to foster a canine.</a>
       </div>
     );
   }
