@@ -27,16 +27,28 @@
       <dependency>
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-starter-data-jpa</artifactId>
+          <exclusions>
+          <exclusion>
+          <groupId>com.zaxxer</groupId>
+          <artifactId>HikariCP</artifactId>
+          </exclusion>
+          </exclusions>
+      </dependency>
+      <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-jdbc</artifactId>
       </dependency>
       <dependency>
     <groupId>org.projectlombok</groupId>
     <artifactId>lombok</artifactId>
 </dependency>
+
 <dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
       <dependency>
           <groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -78,6 +90,35 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-checkstyle-plugin</artifactId>
+    <version>3.1.0</version>
+    <dependencies>
+      <dependency>
+        <groupId>com.puppycrawl.tools</groupId>
+        <artifactId>checkstyle</artifactId>
+        <version>8.26</version>
+      </dependency>
+    </dependencies>
+    <executions>
+      <execution>
+        <id>validate</id>
+        <phase>validate</phase>
+        <configuration>
+          <configLocation>google_checks.xml</configLocation>
+        <!--  <encoding>UTF-8</encoding>
+          <consoleOutput>true</consoleOutput>
+          <failsOnError>true</failsOnError> -->
+           <failOnViolation>true</failOnViolation>
+                <violationSeverity>warning</violationSeverity>
+        </configuration>
+        <goals>
+          <goal>check</goal>
+        </goals>
+      </execution>
+    </executions>
+</plugin>
 		</plugins>
 	</build>
 </project>

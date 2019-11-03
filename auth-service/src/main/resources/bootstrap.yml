@@ -1,11 +1,11 @@
 spring:
-#  profiles:
-#    active: test
+  profiles:
+    active: test
   application:
     name: auth-service
   cloud:
-#      config:
-#        enabled: false
+      config:
+        enabled: false
       uri: http://localhost:8888
       fail-fast: true
       password: ${CONFIG_SERVICE_PASSWORD}
